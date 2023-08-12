@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@600&family=Fasthand&family=Nanum+Myeongjo:wght@700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <style>
+        @keyframes slowmotion {
+            0% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(20px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        
+        body {
+            color: white;
+            font-family: 'Ysabeau Infant', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .backG {
+            position: relative;
+            width: 92%;
+            height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: linear-gradient(135deg, #fdb5bf 0%, #f699a1 100%);
+            background-repeat: no-repeat;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            overflow: hidden;
+        }
+
+        .main>* {
+            animation: scroll 0.5s ease-in;
+            transform-origin: center;
+        }
+
+        .navbar {
+            display: flex;
+
+        }
+
+        .head {
+            margin: 2.5vw 16vw 2vw 6vw;
+            font-size: 1.7rem;
+            font-family: 'Fasthand', cursive;
+        }
+
+        .home {
+            font-family: 'Ysabeau Infant', sans-serif;
+            margin: 3vw 0vw 0vw 2vw;
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .home:hover {
+            color: rgb(221, 77, 101);
+            cursor: pointer;
+        }
+
+        .contact {
+            margin: 3.3vw 3vw 0vw 20vw;
+            font-size: 1.2rem;
+            font-family: 'Ysabeau Infant', sans-serif;
+        }
+
+        .contact:hover {
+            color: rgb(221, 77, 101);
+            cursor: pointer;
+        }
+
+        .login {
+            margin: 2.3vw 0vw 0vw 1vw;
+            font-size: 1.2rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 3vw;
+            width: 7vw;
+            border-start-end-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            /* border-end-end-radius: 25px; */
+            border-top-left-radius: 20px;
+            font-family: 'Ysabeau Infant', sans-serif;
+
+        }
+
+        .login:hover {
+            background-color: rgb(221, 77, 101);
+            color: white;
+            cursor: pointer;
+        }
+
+
+        .text {
+            font-family: 'Ysabeau Infant', sans-serif;
+            margin-top: 7vw;
+            margin-left: 8vw;
+            width: 23vw;
+            font-size: 2.5vw;
+            animation: slowmotion 0.5s ease-in;
+        }
+
+        .getapp {
+            margin-top: 8%;
+            margin-left: 46%;
+            height: 52px;
+            width: 134px;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #db456d;
+            cursor: pointer;
+            font-family: 'Ysabeau Infant', sans-serif;
+            transition: 0.3s;
+        }
+        .getapp:hover{
+            background-color: white;
+            color:#db456d;
+        }
+        .buy {
+            display: flex;
+
+        }
+
+        .login {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .style {
+            margin-left: 0rem;
+            display: absoulte;
+            position: absolute;
+            left: 74%;
+            top: 43%;
+            font-size: 3rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex_column {
+            flex-direction: column;
+        }
+
+        .flex li {
+            list-style: none;
+        }
+
+        .unlock {
+            font-size: 1.4rem;
+            position: absolute;
+            top: 44%;
+            left: 67%;
+            animation: slowmotion 0.5s ease-in;
+            font-family: 'Ysabeau Infant', sans-serif;
+        }
+
+        .fashion {
+            position: absolute;
+            font-family: 'Ysabeau Infant', sans-serif;
+            left: 67%;
+            top: 50%;
+            font-size: 2.5rem;
+            animation: slowmotion 0.5s ease-in;
+        }
+
+        .try {
+            position: absolute;
+            left: 67%;
+            top: 62%;
+            animation: slowmotion 0.5s ease-in;
+        }
+
+        .try button {
+            font-family: 'Ysabeau Infant', sans-serif;
+            background-color: #db456d;
+            color: white;
+            height: 53px;
+            border: none;
+            width: 140px;
+            border-radius: 19px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .try button:hover {
+            background-color: white;
+            color: rgb(223, 113, 132);
+            transition: 0.3s;
+
+        }
+
+        .img {
+            width: 482px;
+            height: 401px;
+            margin-left: -32px;
+            margin-top: 49px;
+        }
+
+        .girl {
+            height: 100%;
+            width: 100%;
+        }
+
+        .black {
+            color: black;
+        }
+
+        .li {
+            list-style: none;
+        }
+
+        .category_head {
+            position: relative;
+            left: 8%;
+            top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .list {
+            position: relative;
+            margin: 10px 10px 10px 10px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+        .list:hover{
+            color: #ee9900;
+        }
+
+        .all img {
+            height: 10%;
+        }
+
+        .all {
+            width: 108px;
+        }
+
+        .allimg {
+
+            position: relative;
+            top: 31px;
+        }
+
+        .remimg {
+            position: relative;
+            top: 32px;
+
+        }
+        .shades{
+            margin-top: 1px;
+            width: 117px;
+            
+        }
+
+        .category_list {
+            margin-left: 11%;
+            padding-left: 2%;
+            margin-bottom: -28%;
+        }
+
+        .category_list .all {
+            margin-left: 3%;
+        }
+
+        .trending {
+            padding-top: 3%;
+            font-size: 2.5rem;
+            width: 100%;
+            margin-left: 6%;
+            margin-bottom: 2%;
+        }
+
+        .color {
+            background-color: #f699a1;
+        }
+
+        .boxes {
+            margin-left: 7%;
+        }
+
+        .boxes .box1 {
+            border-radius: 6px;
+            width: 45.5%;
+            margin-right: 30px;
+            background-color: rgb(255 182 182 / 41%);
+        }
+
+        .boxes .box2 {
+            border: 2px solid black;
+            width: 24%;
+            margin-right: 30px;
+        }
+
+        .trends .img1 img {
+            height: 287px;
+            width: 378px;
+            border-radius: 23px;
+            transition: opacity 0.3s;
+        }
+
+        .trends .img img:hover {
+
+            filter: brightness(50%);
+        }
+
+        .img1 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 38px;
+            margin-left: 5%;
+            padding-left: 11px;
+        }
+
+        .text2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            margin-top: 20px;
+            pointer-events: none;
+            font-size: 30px;
+            color: black;
+            font-family: 'Belanosima', sans-serif;
+        }
+        .cost{
+            font-family: 'Belanosima', sans-serif;
+        }
+        .text3 .flex button {
+            height: 40px;
+            margin-top: 11%;
+            width: 232px;
+            background-color: #e3981b;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            opacity: 1;
+        }
+        .text3 .flex .favourites {
+            height: 47px;
+            width: 68px;
+            color: red;
+            margin-top: 25px;
+            margin-right: -48px;
+        }
+
+        .cart:hover {
+            background-color: #db456d;
+        }
+
+        .text3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            margin-top: 85px;
+            align-items: center;
+            pointer-events: none;
+            font-size: 30px;
+            color: black;
+        }
+
+        .img1:hover .text3 {
+            display: flex;
+        }
+
+        .img1:hover .text2 {
+            display: flex;
+        }
+
+        .img1:hover img {
+            opacity: 0.5;
+            filter: grayscale(256%);
+        }
+
+        .box1 .flex_column h3 {
+            font-size: 1.8rem;
+            padding-right: 10px;
+            padding-left: 23px;
+        }
+
+        .box1 .flex_column p {
+            margin: 50px 29px 15px 44px;
+            font-size: 1.5rem;
+        }
+
+        .box1 .flex_column div {
+            margin-left: 23px;
+        }
+
+        .box1 .flex_column button {
+            margin-left: 36px;
+            height: 40px;
+            width: 106px;
+            border-radius: 9px;
+            border: none;
+            background: #ee9900;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .box1 .flex_column button:hover {
+            background-color: orange;
+        }
+
+        .imgs img {
+
+            width: 207px;
+            border-radius: 7px;
+            width: 298px;
+            height: 266px;
+        }
+
+        .imgs {
+            height: 100%;
+            margin-bottom: 21px;
+            margin-top: 21px;
+            border-radius: 18px;
+        }
+
+        .bwhite {
+            background-color: white;
+        }
+
+        .brands .img1 {
+            height: 104px;
+            margin-top: 49px;
+        }
+
+        .brands .img3 {
+            height: 162px;
+            margin-top: 27px;
+            margin-left: 10px;
+        }
+
+        .brands .img4 {
+            height: 263px;
+            margin-left: 15px;
+            margin-top: -24px;
+        }
+
+        .brands .img5 {
+            height: 118px;
+            margin-top: 44px;
+            margin-left: 18px;
+        }
+        
+        .opac {
+            opacity: 0.5;
+        }
+        .line{
+            text-decoration: underline;
+        }
+        .final_img{
+            height: 303px;
+            margin-top: 21px;
+        }
+        .final{
+            background-color:#f699a1;
+            width: 63%;
+            margin-left: 20%;
+            border-radius: 47px;
+        }
+        .playstore{
+            height: 100px;
+            margin-top: 1%;
+            margin-left: 88px;
+            cursor: pointer;
+        }
+        .appstore{
+            height: 70px;
+            margin-top: 3%;
+            cursor: pointer;
+        }
+        .dis{
+            margin-left: 165px;
+            font-size: 3rem;
+        }
+        .voucher{
+            margin: 25px 33px -10px 207px;
+            font-size: 3rem;
+        }
+        .para{
+            font-size: 1.4rem;
+            margin-left: 28%; 
+            font-family: 'Pacifico', cursive;;       
+        }
+        .white{
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backG">
+        <ul class="flex ">
+            <li class="sopsie head">Shopsie</li>
+            <li class="home">Home</li>
+            <li class="home">Categories</li>
+            <li class="home">About</li>
+            <li class="contact">Contact</li>
+            <li class="login">Login</li>
+        </ul>
+        <div class="flex">
+            <div class="flex_column">
+                <div class="text">Ultimate destination for women who seek global fashion trends </div>
+                <button class="getapp">Get App Now</button>
+            </div>
+
+            <div class="img">
+                <img src="./dancer.png" alt="girl image" class="girl">
+            </div>
+            <div class="flex_column flex">
+
+                <div class="unlock">UNLOCK YOUR</div>
+                <div class="fashion">FASHION</div>
+                <div class="try"><button>Try Now</button></div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <main class="main ">
+        <div class="category_head black">
+            <h1>Category</h1>
+        </div>
+        <div class="ul">
+            <ul class="category_list dist black flex">
+                <div class="all allimg flex_column">
+                    <img src="./all.png" alt="all">
+                    <li class="list line li">All</li>
+                </div>
+                <div class="all remimg flex_column">
+                    <img src="./tops.jpeg" alt="all">
+                    <li class="list li">Tops</li>
+                </div>
+                <div class="all remimg flex_column">
+                    <img src="./jeans.png" alt="all">
+                    <li class="list li">Jeans</li>
+                </div>
+                <div class="all remimg flex_column">
+                    <img src="./shoes.jpeg" alt="all">
+                    <li class="list li">Shoes</li>
+                </div>
+                <div class="all remimg  flex_column">
+                    <img src="./bag.png" alt="all">
+                    <li class="list li">Bags</li>
+                </div>
+                <div class="all remimg  flex_column">
+                    <img src="./watches.png" alt="all">
+                    <li class="list li">watches</li>
+                </div>
+                <div class="all remimg flex_column">
+                    <img src="./shades.jpeg" class="shades" alt="all">
+                    <li class="list li">Shades</li>
+                </div>
+
+            </ul>
+        </div>
+
+        <div class="trends flex black">
+            <div class="img1">
+                <img src="./fashion4.jpeg" alt="image here">
+                <div class="text2">Full sleve T-Shirt</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 299/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+
+            </div>
+            <div class="img1">
+
+                <img src="./fashion5.webp" class="img2" alt="image here">
+                <div class="text2">Jackets</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 599/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+            <div class="img1">
+
+                <img src="./fashion6.jpeg" class="img3" alt="image here">
+                <div class="text2">JumpSuits</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 359/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trends flex black">
+            <div class="img1">
+                <img src="./fashion10.jpg" class="img4" alt="image here">
+                <div class="text2">Shirts</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 399/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+            <div class="img1">
+                <img src="./fashion11.webp" class="img5" alt="image here">
+                <div class="text2">Embridory T-shirt</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 299/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+            <div class="img1">
+                <img src="./fashion13.jpg" class="img6" alt="image here">
+                <div class="text2">Crop Tops</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 349/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trends flex black">
+            <div class="img1">
+                <img src="./fashion14.jpeg" class="img7" alt="image here">
+                <div class="text2">Slip frocks</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 249/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+            <div class="img1">
+                <img src="./fashion15.jpg" class="img8" alt="image here">
+                <div class="text2">Woolen tees</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 499/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+            <div class="img1">
+                <img src="./fashion16.jpg" class="img9" alt="image here">
+                <div class="text2">Sports tees</div>
+                <div class="text3 flex_column">
+                    <div class="cost">Price 259/-</div>
+                    <div class="flex">
+                        <button class="cart">Add to Cart</button>
+                        <img class="favourites" src="./like.png" alt="favourite">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trending black">Trending this month</div>
+        <div class="boxes flex black ">
+            <div class="box1 flex">
+                <div class="flex_column">
+                    <h3>Black Shirt and Pant</h3>
+                    <div>updated latest and competitive prices</div>
+                    <p class="strike">Price <s>599/-</s>   449</p>
+                    <button>shopnow</button>
+                </div>
+                <div class="imgs">
+                    <img src="./box1.jpg" alt="image here">
+                </div>
+
+            </div>
+            <div class="box1 flex">
+                <div class="flex_column">
+                    <h3>Black Shirt and Pant</h3>
+                    <div>updated latest and competitive prices</div>
+                    <p class="strike">Price <s>799/-</s> 599</p>
+                    <button>shopnow</button>
+                </div>
+                <div class="imgs">
+                    <img src="./box3.jpeg" alt="image here">
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </main>
+    <footer class="footer">
+        <hr>
+        <div class="brands flex black">
+            <img src="./logo1.png" class="img1 opac" alt="logo">
+            <img src="./logo2.png" class="img1 opac" alt="logo">
+            <img src="./logo3.png" class="img3 opac" alt="logo">
+            <img src="./logo4.png" class="img4 opac" alt="logo">
+            <img src="./logo5.png" class="img5 opac" alt="logo">
+        </div>
+        
+        <div class="final">
+             <div class="flex">
+                <div class="flex_column">
+                    <div class="voucher">Get Voucher</div>
+                    <div class="dis">discount upto 70%</div>
+                    <p class="para">get big discounts by installing our app </p>
+                    <div class="flex">
+                        <img src="./playstore.png" alt="playstore" class="playstore">
+                        <img src="./appstore.svg" alt="appstore" class="appstore">
+                    </div>
+                </div>
+                <img src="./shopping.webp" alt="final image" class="final_img">
+             </div>
+        </div>
+    </footer>
+</body>
+
+</html>
