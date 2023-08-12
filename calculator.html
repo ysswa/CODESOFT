@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: rgb(210, 240, 240);
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        ul{
+            list-style:disc;
+        }
+
+        .display {
+            width: 98%;
+            height: 63px;
+            background-color: rgb(49 0 92);
+            color: white;
+            border: none;
+            margin-top: 6px;
+        }
+
+        .calculator {
+
+            background-color: rgb(34 4 60);
+        }
+
+        .button {
+            width: 68px;
+            height: 38px;
+            margin-top: 5px;
+            background-color: rgb(39 10 65);
+            border: none;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .button:active {
+            background-color: red;
+        }
+
+        .white {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <h2>Instuctions</h2>
+    <ul>
+
+        <li>On clicking the "e" and "pi" buttons, their respective values are directly displayed.</li>
+        <li>While clicking the operators, the numbers won't display, but when you click equals, you will get the result.
+        </li>
+        <li>You can perform multiple operations using multiple operators at a time without clicking equals.</li>
+        <li>If you click equals, the data will be erased, and the calculator will reset to its initial state.</li>
+        <li>To perform calculations involving the log, ln, sin, cos, and tan functions, use the ")" symbol to close the
+            parentheses.</li>
+        <li>On closing the parathesis you can get the value</li>
+    </ul>
+    <div class="flex">
+        <div class="calculator">
+            <div class="form white">
+                <input type="hidden" class="hidden" id="hidden" name="hidden" value="">
+                <input type="text" class="display" id="display" name="display" value="">
+                <div class="buttons">
+                    <input type="button" value="AC" class="button" onclick="clearify()">
+                    <input type="button" value="DEL" class="button" onclick="del()">
+                    <input type="button" value="^" name="power" class="button" onclick="operation('^')">
+                    <input type="button" value="%" class="button" onclick="operation('%')">
+                    <input type="button" value="=" class="button" onclick="equals()">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="e" class="button" onclick="e()">
+                    <input type="button" value="sqrt" class="button" onclick="trig('sqrt')">
+                    <input type="button" value="pie" class="button" onclick="pies()">
+                    <input type="button" value=")" class="button" onclick="evalua()">
+                    <input type="button" value="ln" class="button" onclick="trig('ln')">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="7" class="button" onclick="disp(7)">
+                    <input type="button" value="8" class="button" onclick="disp(8)">
+                    <input type="button" value="9" class="button" onclick="disp(9)">
+                    <input type="button" value="/" class="button" onclick="operation('/')">
+                    <input type="button" value="log" class="button" onclick="trig('log')">
+
+                </div>
+                <div class="buttons">
+                    <input type="button" value="4" class="button" onclick="disp(4)">
+                    <input type="button" value="5" class="button" onclick="disp(5)">
+                    <input type="button" value="6" class="button" onclick="disp(6)">
+                    <input type="button" value="x" class="button" onclick="operation('x')">
+                    <input type="button" value="tan" class="button" onclick="trig('tan')">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="1" class="button" onclick="disp(1)">
+                    <input type="button" value="2" class="button" onclick="disp(2)">
+                    <input type="button" value="3" class="button" onclick="disp(3)">
+                    <input type="button" value="-" class="button equal" onclick="operation('-')">
+                    <input type="button" value="cos" class="button" onclick="trig('cos')">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="0" class="button" onclick="disp(0)">
+                    <input type="button" value="00" class="button" onclick="ddisp(0)">
+                    <input type="button" value="." class="button" onclick="dot()">
+                    <input type="button" value="+" class="button" onclick="operation('+')">
+                    <input type="button" value="sin" class="button" onclick="trig('sin')">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var count = 0;
+    var latest = " ";
+    var eq = 0;
+    trign = " "
+    function disp(nums) {
+        var val = document.getElementById("display");
+        var val2 = document.getElementById("hidden");
+        if (eq == 0) {
+            val.value += nums;
+        }
+        else {
+            val2.value = "";
+            val.value = nums;
+            eq = 0;
+        }
+    }
+    function del() {
+        var val = document.getElementById("display");
+        val.value = val.value.slice(0, -1);
+    }
+    function clearify() {
+        var val = document.getElementById("display");
+        var val2 = document.getElementById("hidden");
+        val2.value = "";
+        val.value = "";
+        count = 0;
+        eq = 0;
+        latest = " ";
+    }
+    function ddisp(num) {
+        var val = document.getElementById("display");
+        val.value += num;
+        val.value += num;
+    }
+    function dot() {
+        var val = document.getElementById("display");
+        var l = 0;
+        for (l; l < val.value.length; l++) {
+            console.log("function called");
+            if (val.value[l] == ".") {
+                console.log("hie");
+                val.value = "error";
+                return;
+            }
+        }
+        if (val.value == "") {
+            val.value = "0.";
+        }
+        else {
+            val.value += ".";
+        }
+    }
+
+    function equals() {
+        eq += 1;
+        count = 0;
+        var val = document.getElementById("hidden");
+        var val2 = document.getElementById("display");
+        if (latest == "+") {
+            val.value = Number(val.value) + Number(val2.value);
+        }
+        if (latest == "-") {
+            val.value = Number(val.value) - Number(val2.value);
+        }
+        if (latest == "x") {
+            console.log("came here");
+            val.value = Number(val.value) * Number(val2.value);
+        }
+        if (latest == "/") {
+            val.value = Number(val.value) / Number(val2.value);
+        }
+        if (latest == "^") {
+            var num = val2.value;
+            var num2 = val.value;
+            for (var l = 0; l < num - 1; l++) {
+                console.log("val.value is " + val.value);
+                val.value *= num2;
+            }
+        }
+        if (val.value == "") {
+            val2.value = val2.value;
+        }
+
+        else {
+            val2.value = val.value;
+        }
+    }
+    function operation(op) {
+        count += 1;
+        var val = document.getElementById("hidden");
+        var val2 = document.getElementById("display");
+        if (op == "+" && (latest == " " || latest == op)) {
+            if (count < 2) {
+                val.value += Number(val2.value);
+                val2.value = "";
+            }
+            else {
+                var tot = Number(val.value) + Number(val2.value);
+                val2.value = "";
+                val.value = Number(tot);
+            }
+
+        }
+        if (op == "-" && (latest == " " || latest == op)) {
+            if (count < 2) {
+                val.value = Number(val2.value);
+                val2.value = "";
+            }
+            else {
+                var tot = Number(val.value) - Number(val2.value);
+                val2.value = "";
+                val.value = Number(tot);
+            }
+
+        }
+        if (op == "x" && (latest == " " || latest == op)) {
+            if (count < 2) {
+                val.value = Number(val2.value);
+                val2.value = "";
+            }
+            else {
+                var tot = Number(val.value) * Number(val2.value);
+                val2.value = "";
+                val.value = Number(tot);
+            }
+
+        }
+        if (op == "/" && (latest == " " || latest == op)) {
+            if (count < 2) {
+                val.value = Number(val2.value);
+                val2.value = "";
+            }
+            else {
+                var tot = Number(val.value) / Number(val2.value);
+                val2.value = "";
+                val.value = Number(tot);
+            }
+
+        }
+        if (op == "%" && (latest == " " || latest == op)) {
+            val2.value = val2.value / 100;
+        }
+        if (op == "^" && (latest == " " || latest == op)) {
+            if (count < 2) {
+                val.value = Number(val2.value);
+                val2.value = "";
+            }
+            else {
+                var num = val2.value;
+                for (var l = 0; l < num; l++) {
+                    val.value *= val.value;
+                }
+                val2.value = "";
+
+            } console.log(val.value);
+
+        }
+        if (latest != " " && latest != op) {
+            if (latest == "+" && op != "%") {
+                if (count < 2) {
+                    val.value += Number(val2.value);
+                    val2.value = "";
+                }
+                else {
+                    var tot = Number(val.value) + Number(val2.value);
+                    val2.value = "";
+                    val.value = Number(tot);
+                }
+            }
+            if (latest == "-" && op != "%") {
+                if (count < 2) {
+                    val.value = Number(val2.value);
+                    val2.value = "";
+                }
+                else {
+                    var tot = Number(val.value) - Number(val2.value);
+                    val2.value = "";
+                    val.value = Number(tot);
+                }
+            }
+            if (latest == "x" && op != "%") {
+                if (count < 2) {
+                    val.value = Number(val2.value);
+                    val2.value = "";
+                }
+                else {
+                    var tot = Number(val.value) * Number(val2.value);
+                    val2.value = "";
+                    val.value = Number(tot);
+                }
+            }
+            if (latest == "/" && op != "%") {
+                if (count < 2) {
+                    val.value = Number(val2.value);
+                    val2.value = "";
+                }
+                else {
+                    var tot = Number(val.value) / Number(val2.value);
+                    val2.value = "";
+                    val.value = Number(tot);
+                }
+            }
+            if (latest == "^" && op != "%") {
+                if (count < 2) {
+                    val.value = Number(val2.value);
+                    val2.value = "";
+                }
+                else {
+                    var num = val2.value;
+                    for (var l = 0; l < num; l++) {
+                        val.value *= val.value;
+                    }
+                    val2.value = "";
+                }
+            }
+            if (op == "%") {
+                var num = Number(val.value);
+                var num2 = Number(val2.value);
+                if (latest == "+") {
+                    val2.value = num + (num * num2) / 100;
+                }
+                if (latest == "-") {
+                    val2.value = num - (num * num2) / 100;
+                }
+                if (latest == "x") {
+                    val2.value = num * (num * num2) / 100;
+                }
+                if (latest == "/") {
+                    val2.value = num / (num * num2) / 100;
+                }
+            }
+
+        } latest = op;
+    }
+    function trig(opr) {
+        var val = document.getElementById("display");
+        val.value = opr + "(";
+        trign = opr;
+    }
+    function evalua() {
+        var val = document.getElementById("display");
+        val.value += ")";
+        if (val.value[0] == "l" && val.value[1] == "n") {
+            var value = val.value.slice(3, -1);
+            value = Math.log(value);
+            val.value = value;
+        }
+        if (val.value[0] == "s" && val.value[1] == "i") {
+            var value = val.value.slice(4, -1);
+            value = Math.sin(value);
+            val.value = value;
+        }
+        if (val.value[0] == "c") {
+            var value = val.value.slice(4, -1);
+            value = Math.cos(value);
+            val.value = value;
+        }
+        if (val.value[0] == "t") {
+            var value = val.value.slice(4, -1);
+            value = Math.tan(value);
+            val.value = value;
+        }
+        if (val.value[0] == "l") {
+            var value = val.value.slice(4, -1);
+            value = Math.log10(value);
+            val.value = value;
+        }
+        if (val.value[0] == "s" && val.value[1] == "q") {
+            var prec = 0.0000000001;
+            var num = val.value.slice(5, -1);
+            var guess = num / 2;
+            while (guess * guess - num > prec) {
+                guess = (guess + num / guess) / 2;
+            }
+            guess = guess * 1000000000;
+            guess = Math.round(guess);
+            guess = guess / 1000000000;
+            val.value = guess;
+            console.log(guess);
+        }
+
+    }
+    function e() {
+        var val = document.getElementById("display");
+        val.value += 2.718281;
+    }
+    function pies() {
+        var val = document.getElementById("display");
+        val.value += 3.141592;
+    }
+</script>
+
+</html>
